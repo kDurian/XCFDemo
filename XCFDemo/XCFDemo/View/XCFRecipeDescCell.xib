@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kRecipeDescCellID" id="t3T-vf-wnj" customClass="XCFRecipeDescCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3T-vf-wnj" id="wcg-zc-l5v">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtE-97-dBL">
+                        <rect key="frame" x="30" y="0.0" width="260" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YtE-97-dBL" firstAttribute="top" secondItem="wcg-zc-l5v" secondAttribute="top" id="8Ho-fJ-Qj1"/>
+                    <constraint firstItem="YtE-97-dBL" firstAttribute="leading" secondItem="wcg-zc-l5v" secondAttribute="leading" constant="30" id="MHr-vB-M36"/>
+                    <constraint firstAttribute="bottom" secondItem="YtE-97-dBL" secondAttribute="bottom" id="Na3-gk-iRb"/>
+                    <constraint firstAttribute="trailing" secondItem="YtE-97-dBL" secondAttribute="trailing" constant="30" id="hFZ-2f-Cb4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="recipeDescLabel" destination="YtE-97-dBL" id="RHN-pQ-w9b"/>
+            </connections>
+            <point key="canvasLocation" x="359" y="260"/>
+        </tableViewCell>
+    </objects>
+</document>

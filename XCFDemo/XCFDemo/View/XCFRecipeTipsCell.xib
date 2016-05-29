@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kRecipeTipsCellID" rowHeight="86" id="dZq-Db-Zgy" customClass="XCFRecipeTipsCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZq-Db-Zgy" id="LoI-Bi-JRX">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小貼士" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zW4-T9-Vd1">
+                        <rect key="frame" x="20" y="10" width="51" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0d-3T-eFA">
+                        <rect key="frame" x="20" y="56" width="270" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="x0d-3T-eFA" firstAttribute="top" secondItem="zW4-T9-Vd1" secondAttribute="bottom" constant="25" id="HeD-rx-8Ej"/>
+                    <constraint firstItem="zW4-T9-Vd1" firstAttribute="top" secondItem="LoI-Bi-JRX" secondAttribute="top" constant="10" id="RHP-g9-fz6"/>
+                    <constraint firstItem="x0d-3T-eFA" firstAttribute="leading" secondItem="LoI-Bi-JRX" secondAttribute="leading" constant="20" id="atc-vg-s7y"/>
+                    <constraint firstAttribute="trailing" secondItem="x0d-3T-eFA" secondAttribute="trailing" constant="30" id="jaO-Qg-ELx"/>
+                    <constraint firstItem="zW4-T9-Vd1" firstAttribute="leading" secondItem="LoI-Bi-JRX" secondAttribute="leading" constant="20" id="kPZ-IO-EhX"/>
+                    <constraint firstAttribute="bottom" secondItem="x0d-3T-eFA" secondAttribute="bottom" constant="10" id="mmB-5y-wcL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="recipeTipsLabel" destination="x0d-3T-eFA" id="e3f-xF-bGr"/>
+                <outlet property="tipsTitleLabel" destination="zW4-T9-Vd1" id="1KF-lY-tB3"/>
+            </connections>
+            <point key="canvasLocation" x="390" y="221"/>
+        </tableViewCell>
+    </objects>
+</document>

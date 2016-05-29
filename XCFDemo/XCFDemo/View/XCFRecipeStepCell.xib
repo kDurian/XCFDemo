@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kRecipeStepCellID" rowHeight="259" id="crV-HG-UE8" customClass="XCFRecipeStepCell">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="259"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="crV-HG-UE8" id="3lO-He-62S">
+                <rect key="frame" x="0.0" y="0.0" width="361" height="258"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-NP-Q8n">
+                        <rect key="frame" x="20" y="10" width="10" height="26"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="createRecipeCamera" translatesAutoresizingMaskIntoConstraints="NO" id="1ST-qd-WHi">
+                        <rect key="frame" x="52" y="10" width="220" height="180"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="220" id="17d-XW-I4v"/>
+                            <constraint firstAttribute="height" constant="180" id="jGy-Kw-qwB"/>
+                        </constraints>
+                    </imageView>
+                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-wL-lph">
+                        <rect key="frame" x="52" y="190" width="220" height="68"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addMark" translatesAutoresizingMaskIntoConstraints="NO" id="7Y4-ok-sbA">
+                                <rect key="frame" x="0.0" y="20" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="QyE-Jh-7WP"/>
+                                    <constraint firstAttribute="width" constant="15" id="Xdk-ml-KkJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加步骤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4t-5q-PMh">
+                                <rect key="frame" x="30" y="20" width="48" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.58039215690000001" green="0.58431372550000005" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x4t-5q-PMh" firstAttribute="leading" secondItem="7Y4-ok-sbA" secondAttribute="trailing" constant="15" id="T2L-Oh-tgP"/>
+                            <constraint firstItem="7Y4-ok-sbA" firstAttribute="leading" secondItem="Yqk-wL-lph" secondAttribute="leading" id="VJi-Ff-abD"/>
+                            <constraint firstItem="7Y4-ok-sbA" firstAttribute="top" secondItem="Yqk-wL-lph" secondAttribute="top" constant="20" id="eWo-gI-vaZ"/>
+                            <constraint firstItem="x4t-5q-PMh" firstAttribute="centerY" secondItem="7Y4-ok-sbA" secondAttribute="centerY" id="m3g-GP-Tls"/>
+                        </constraints>
+                    </view>
+                    <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-0h-awr">
+                        <rect key="frame" x="52" y="210" width="220" height="18"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdx-Ai-HpO">
+                        <rect key="frame" x="52" y="190" width="220" height="68"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1ST-qd-WHi" firstAttribute="leading" secondItem="kAK-NP-Q8n" secondAttribute="trailing" constant="22" id="2X4-S2-buf"/>
+                    <constraint firstAttribute="bottom" secondItem="xEr-0h-awr" secondAttribute="bottom" constant="30" id="67K-po-JDU"/>
+                    <constraint firstItem="Yqk-wL-lph" firstAttribute="leading" secondItem="1ST-qd-WHi" secondAttribute="leading" id="BCg-E1-3Wp"/>
+                    <constraint firstItem="xEr-0h-awr" firstAttribute="top" secondItem="1ST-qd-WHi" secondAttribute="bottom" constant="20" id="Bv8-ua-LRP"/>
+                    <constraint firstItem="kAK-NP-Q8n" firstAttribute="leading" secondItem="3lO-He-62S" secondAttribute="leading" constant="20" id="Cp1-zk-uIj"/>
+                    <constraint firstItem="Yqk-wL-lph" firstAttribute="top" secondItem="1ST-qd-WHi" secondAttribute="bottom" id="Env-mj-9tK"/>
+                    <constraint firstItem="Yqk-wL-lph" firstAttribute="trailing" secondItem="1ST-qd-WHi" secondAttribute="trailing" id="GwI-pq-y7a"/>
+                    <constraint firstItem="Xdx-Ai-HpO" firstAttribute="leading" secondItem="1ST-qd-WHi" secondAttribute="leading" id="Na3-kP-OeN"/>
+                    <constraint firstItem="Xdx-Ai-HpO" firstAttribute="trailing" secondItem="1ST-qd-WHi" secondAttribute="trailing" id="ORk-l2-1j6"/>
+                    <constraint firstItem="kAK-NP-Q8n" firstAttribute="top" secondItem="3lO-He-62S" secondAttribute="top" constant="10" id="QQs-yT-yQ9"/>
+                    <constraint firstItem="xEr-0h-awr" firstAttribute="leading" secondItem="1ST-qd-WHi" secondAttribute="leading" id="b7c-D5-2o1"/>
+                    <constraint firstAttribute="bottom" secondItem="Xdx-Ai-HpO" secondAttribute="bottom" id="eLg-Xf-khG"/>
+                    <constraint firstAttribute="bottom" secondItem="Yqk-wL-lph" secondAttribute="bottom" id="kAh-7X-RcT"/>
+                    <constraint firstItem="1ST-qd-WHi" firstAttribute="top" secondItem="3lO-He-62S" secondAttribute="top" constant="10" id="xuB-zX-uev"/>
+                    <constraint firstItem="xEr-0h-awr" firstAttribute="trailing" secondItem="1ST-qd-WHi" secondAttribute="trailing" id="yNg-uN-boB"/>
+                    <constraint firstItem="Xdx-Ai-HpO" firstAttribute="top" secondItem="1ST-qd-WHi" secondAttribute="bottom" id="zLS-2z-MC6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addRecipeTextStepButton" destination="Xdx-Ai-HpO" id="0rX-hL-GQB"/>
+                <outlet property="picStepImageView" destination="1ST-qd-WHi" id="o8e-B5-RSK"/>
+                <outlet property="stepNumberLabel" destination="kAK-NP-Q8n" id="tg6-Yy-Kdd"/>
+                <outlet property="textStepAddView" destination="Yqk-wL-lph" id="fLM-wo-BrS"/>
+                <outlet property="textStepLabel" destination="xEr-0h-awr" id="dMy-lc-nPx"/>
+            </connections>
+            <point key="canvasLocation" x="449.5" y="476.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addMark" width="44" height="44"/>
+        <image name="createRecipeCamera" width="106" height="106"/>
+    </resources>
+</document>

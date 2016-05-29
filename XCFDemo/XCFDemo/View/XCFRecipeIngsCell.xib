@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kRecipeIngsCellID" id="SAM-JJ-Sga" customClass="XCFRecipeIngsCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SAM-JJ-Sga" id="1DB-Ic-Q5P">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="例：猪肉" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAF-TA-0oI">
+                        <rect key="frame" x="30" y="0.0" width="139" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFX-JG-RFd">
+                        <rect key="frame" x="174" y="0.0" width="116" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="cFX-JG-RFd" secondAttribute="trailing" constant="30" id="4xd-xG-XUX"/>
+                    <constraint firstItem="PAF-TA-0oI" firstAttribute="top" secondItem="1DB-Ic-Q5P" secondAttribute="top" id="GB0-gj-svL"/>
+                    <constraint firstAttribute="bottom" secondItem="PAF-TA-0oI" secondAttribute="bottom" id="Mkw-jl-ny2"/>
+                    <constraint firstAttribute="bottom" secondItem="cFX-JG-RFd" secondAttribute="bottom" id="fO4-23-sw2"/>
+                    <constraint firstItem="cFX-JG-RFd" firstAttribute="leading" secondItem="PAF-TA-0oI" secondAttribute="trailing" constant="5" id="lde-3n-Lqf"/>
+                    <constraint firstItem="PAF-TA-0oI" firstAttribute="leading" secondItem="1DB-Ic-Q5P" secondAttribute="leading" constant="30" id="m6p-20-Gzq"/>
+                    <constraint firstItem="cFX-JG-RFd" firstAttribute="top" secondItem="1DB-Ic-Q5P" secondAttribute="top" id="wiA-Du-rVJ"/>
+                    <constraint firstItem="cFX-JG-RFd" firstAttribute="width" secondItem="PAF-TA-0oI" secondAttribute="width" multiplier="5/6" id="xWC-eT-gpc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ingredientAmountLabel" destination="cFX-JG-RFd" id="3fs-bC-azT"/>
+                <outlet property="ingredientNameLable" destination="PAF-TA-0oI" id="75x-as-SWq"/>
+            </connections>
+            <point key="canvasLocation" x="740" y="553"/>
+        </tableViewCell>
+    </objects>
+</document>
