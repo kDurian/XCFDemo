@@ -1,0 +1,82 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.8.1)
+  - Masonry (1.0.0)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.0)
+  - Realm (1.0.0):
+    - Realm/Headers (= 1.0.0)
+  - Realm/Headers (1.0.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SVProgressHUD (2.0.3)
+  - TTTAttributedLabel (1.13.4)
+  - UITableView+FDTemplateLayoutCell (1.5.beta)
+  - YYCache (1.0.3)
+  - YYCategories (0.9.4):
+    - YYCategories/no-arc (= 0.9.4)
+  - YYCategories/no-arc (0.9.4)
+  - YYImage (1.0.2):
+    - YYImage/Core (= 1.0.2)
+  - YYImage/Core (1.0.2)
+  - YYModel (1.0.3)
+  - YYWebImage (1.0.3):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - DZNEmptyDataSet
+  - Masonry
+  - MBProgressHUD (~> 0.9.2)
+  - MJRefresh
+  - Realm
+  - SDWebImage
+  - SVProgressHUD (~> 2.0-beta)
+  - TTTAttributedLabel (~> 1.13.4)
+  - UITableView+FDTemplateLayoutCell (~> 1.5.beta)
+  - YYCategories (~> 0.9.3)
+  - YYModel
+  - YYWebImage
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  UITableView+FDTemplateLayoutCell: 02b508ab1cb4cea16a8c17ac83d2cd1fd72124f9
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
+  YYCategories: 3c7e012ac4573b1fc432f9a2eac15109857391d2
+  YYImage: 2cc79ed49b9549b71c6715cefe7b0f5ab3d33abf
+  YYModel: 63142c2f07c5c8c9d1c261689cf3827ea6ab2886
+  YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d
+
+PODFILE CHECKSUM: e21bec3e99c900ac169b12c8be33fea0a6b9450f
+
+COCOAPODS: 1.0.0

@@ -2,16 +2,18 @@ platform :ios, '8.0'
 
 use_frameworks!
 
-pod "AFNetworking", "~> 2.0"
-pod 'YYModel'
-pod 'YYWebImage'
-pod 'SDWebImage'
-pod 'MJRefresh'
-pod 'MBProgressHUD', '~> 0.9.2'
-pod 'YYCategories', '~> 0.9.3'       #扩展
-pod 'SVProgressHUD', '~> 2.0-beta'   #弹框提示
-pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
-pod 'Realm'
-pod 'DZNEmptyDataSet'
-pod 'Masonry'
-pod 'TTTAttributedLabel', '~> 1.13.4'
+target 'XCFDemo' do
+    pod "AFNetworking", "~> 2.0"
+    pod 'YYModel'
+    pod 'YYWebImage'
+    pod 'SDWebImage'
+    pod 'MJRefresh'
+    pod 'MBProgressHUD', '~> 0.9.2'
+    pod 'YYCategories', '~> 0.9.3'       #扩展
+    pod 'SVProgressHUD', '~> 2.0-beta'   #弹框提示
+    pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
+    pod 'Realm'
+    pod 'DZNEmptyDataSet'
+    pod 'Masonry'
+    pod 'TTTAttributedLabel', '~> 1.13.4'
+end
