@@ -1,6 +1,0 @@
-framework module Pods_XCFDemo {
-  umbrella header "Pods-XCFDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}
