@@ -10,22 +10,8 @@
 #import "YYWebImage.h"
 
 @implementation HomeIssueItemTPL6TableViewCell
-
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setItem:(RecipeItem *)item{
+    _item = item;
+    self.recipeImageView.yy_imageURL = [NSURL URLWithString:item.contents.image.url];
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void)homeIssueItemTPL6TableViewCellBindRecipeItem:(RecipeItem *)item
-{
-    if (item) {
-        self.recipeImageView.yy_imageURL = [NSURL URLWithString:item.contents.image.url];
-    }
-}
-
 @end

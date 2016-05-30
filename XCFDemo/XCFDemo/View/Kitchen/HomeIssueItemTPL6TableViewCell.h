@@ -12,7 +12,5 @@
 @interface HomeIssueItemTPL6TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
-
-- (void)homeIssueItemTPL6TableViewCellBindRecipeItem:(RecipeItem *)item;
-
+@property(nonatomic, strong) RecipeItem *item;
 @end

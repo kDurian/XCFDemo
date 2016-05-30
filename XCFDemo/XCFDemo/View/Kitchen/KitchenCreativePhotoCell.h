@@ -10,10 +10,7 @@
 #import "HomePageRecipeModel.h"
 
 @interface KitchenCreativePhotoCell : UITableViewCell
-
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *recipeWhisperLabel;
-
-- (void)creativePhotoCellBindRecipeItem:(RecipeItem *)item;
-
+@property(nonatomic, strong) RecipeItem *item;
 @end

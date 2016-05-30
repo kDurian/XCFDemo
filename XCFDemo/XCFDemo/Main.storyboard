@@ -51,10 +51,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-VK-Irx" userLabel="LeftView">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="109"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra5-7g-cee">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-Cn-YFq">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="109"/>
-                                                    <state key="normal" backgroundImage="handleButtonBackgroundSelected"/>
-                                                </button>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本周流行菜谱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jj-Mf-E0M">
                                                     <rect key="frame" x="99" y="76" width="102" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -64,20 +63,20 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="Ra5-7g-cee" firstAttribute="leading" secondItem="T4M-VK-Irx" secondAttribute="leading" id="7xA-Ev-9FA"/>
-                                                <constraint firstItem="Ra5-7g-cee" firstAttribute="top" secondItem="T4M-VK-Irx" secondAttribute="top" id="PAR-e3-yBP"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ra5-7g-cee" secondAttribute="bottom" id="POr-vz-RPo"/>
+                                                <constraint firstAttribute="trailing" secondItem="XLn-Cn-YFq" secondAttribute="trailing" id="5vf-3q-uVG"/>
+                                                <constraint firstAttribute="bottom" secondItem="XLn-Cn-YFq" secondAttribute="bottom" id="Acr-79-qMN"/>
+                                                <constraint firstItem="XLn-Cn-YFq" firstAttribute="leading" secondItem="T4M-VK-Irx" secondAttribute="leading" id="BsX-PY-yT4"/>
                                                 <constraint firstAttribute="bottom" secondItem="6jj-Mf-E0M" secondAttribute="bottom" constant="12" id="X1g-ss-Zk5"/>
                                                 <constraint firstItem="6jj-Mf-E0M" firstAttribute="centerX" secondItem="T4M-VK-Irx" secondAttribute="centerX" id="hGm-ii-ngb"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ra5-7g-cee" secondAttribute="trailing" id="jlR-2E-qdX"/>
+                                                <constraint firstItem="XLn-Cn-YFq" firstAttribute="top" secondItem="T4M-VK-Irx" secondAttribute="top" id="qlu-dl-0WE"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5F-8K-B0O" userLabel="RightView">
                                             <rect key="frame" x="300" y="0.0" width="300" height="109"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYx-EC-IbE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-cn-IQO">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="109"/>
-                                                </button>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z37-rl-9xg">
                                                     <rect key="frame" x="116" y="76" width="68" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -95,13 +94,13 @@
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="z37-rl-9xg" firstAttribute="centerX" secondItem="A5F-8K-B0O" secondAttribute="centerX" id="4l8-jQ-v5e"/>
+                                                <constraint firstItem="0Jd-cn-IQO" firstAttribute="leading" secondItem="A5F-8K-B0O" secondAttribute="leading" id="EaB-5q-dEg"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Jd-cn-IQO" secondAttribute="trailing" id="HJC-4N-Tda"/>
                                                 <constraint firstItem="1AR-0N-xoQ" firstAttribute="centerY" secondItem="A5F-8K-B0O" secondAttribute="centerY" id="KaK-JY-IoF"/>
-                                                <constraint firstAttribute="bottom" secondItem="PYx-EC-IbE" secondAttribute="bottom" id="T2H-03-p4D"/>
-                                                <constraint firstItem="PYx-EC-IbE" firstAttribute="leading" secondItem="A5F-8K-B0O" secondAttribute="leading" id="UR8-XL-Ffg"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Jd-cn-IQO" secondAttribute="bottom" id="MdN-yH-taK"/>
+                                                <constraint firstItem="0Jd-cn-IQO" firstAttribute="top" secondItem="A5F-8K-B0O" secondAttribute="top" id="Tvg-7a-Uml"/>
                                                 <constraint firstItem="1AR-0N-xoQ" firstAttribute="centerX" secondItem="A5F-8K-B0O" secondAttribute="centerX" id="npc-qs-aH3"/>
                                                 <constraint firstAttribute="bottom" secondItem="z37-rl-9xg" secondAttribute="bottom" constant="12" id="uUc-uv-tRt"/>
-                                                <constraint firstAttribute="trailing" secondItem="PYx-EC-IbE" secondAttribute="trailing" id="ws6-CV-gRv"/>
-                                                <constraint firstItem="PYx-EC-IbE" firstAttribute="top" secondItem="A5F-8K-B0O" secondAttribute="top" id="zoK-uD-YQD"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -117,9 +116,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="leftButton" destination="Ra5-7g-cee" id="2mV-wS-3Ux"/>
+                                    <outlet property="leftImageView" destination="XLn-Cn-YFq" id="TlQ-X5-QuN"/>
                                     <outlet property="leftTitleLabel" destination="6jj-Mf-E0M" id="GhU-BC-2gf"/>
-                                    <outlet property="rightButton" destination="PYx-EC-IbE" id="qmi-f0-0s2"/>
+                                    <outlet property="rightImageView" destination="0Jd-cn-IQO" id="Os9-g6-M7C"/>
                                     <outlet property="rightNotificationLabel" destination="1AR-0N-xoQ" id="fUp-Lq-zT8"/>
                                     <outlet property="rightTitleLabel" destination="z37-rl-9xg" id="5er-Fv-9V6"/>
                                 </connections>
@@ -450,7 +449,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="handleButtonBackgroundSelected" width="44" height="44"/>
         <image name="tabADeselected" width="50" height="50"/>
         <image name="tabASelected" width="50" height="50"/>
         <image name="tabBDeselected" width="50" height="50"/>

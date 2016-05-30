@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "HomePageRecipeModel.h"
 
 @interface KitchenArticleOfFoodCell : UITableViewCell
-
-
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
-
-- (void)articleOfFoodCellBindRecipeItem:(RecipeItem *)item;
-
+@property(nonatomic, strong) RecipeItem *item;
 @end

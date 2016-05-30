@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "HomePageModel.h"
 
 @interface KitchenNavCell : UITableViewCell
@@ -19,7 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *thirdLabel;
 @property (weak, nonatomic) IBOutlet UIButton *fourthButton;
 @property (weak, nonatomic) IBOutlet UILabel *fourthLabel;
-
-- (void)cellBindHomePageNavContent:(HomePageContentModel *)content;
-
+@property(nonatomic, strong) HomePageContentModel *content;
 @end

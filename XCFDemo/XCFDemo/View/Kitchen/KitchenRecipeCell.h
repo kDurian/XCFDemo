@@ -10,15 +10,11 @@
 #import "HomePageRecipeModel.h"
 
 @interface KitchenRecipeCell : UITableViewCell
-
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *authorAvatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *recipeTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recipeSummaryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorIDLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *scoreAndCookedLabel;
-
-- (void)recipeCellBindRecipeItem:(RecipeItem *)item;
-
+@property(nonatomic, strong) RecipeItem *item;
 @end

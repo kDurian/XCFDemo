@@ -10,9 +10,6 @@
 #import "HomePageAdModel.h"
 
 @interface KitchenBannerAd1Cell : UITableViewCell
-
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
-
-- (void)cellBindHomePageBannerAdContent:(AdContent *)content;
-
+@property(nonatomic, strong) AdContent *content;
 @end

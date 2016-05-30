@@ -10,7 +10,5 @@
 #import "HomePageModel.h"
 
 @interface KitchenPopEventsCell : UITableViewCell
-
-- (void)cellBindHomePageNavContent:(HomePageContentModel *)content;
-
+@property(nonatomic, strong) HomePageContentModel *content;
 @end

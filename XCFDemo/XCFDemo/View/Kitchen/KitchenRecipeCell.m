@@ -15,24 +15,14 @@
 
 
 @implementation KitchenRecipeCell
-
 - (void)awakeFromNib {
-    
     self.authorAvatarImageView.layer.cornerRadius = 20;
     self.authorAvatarImageView.layer.masksToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void)recipeCellBindRecipeItem:(RecipeItem *)item
-{
-    
+- (void)setItem:(RecipeItem *)item{
+    _item = item;
     RecipeItemContents *contents = item.contents;
-    
     //缓存原始图片
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:contents.image.url]];
     UIImage *image = [UIImage imageWithData:imageData];
@@ -260,5 +250,4 @@
 {
     return nil;
 }
-
 @end

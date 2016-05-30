@@ -10,16 +10,8 @@
 #import "YYWebImage.h"
 
 @implementation KitchenBannerAd1Cell
-
-- (void)cellBindHomePageBannerAdContent:(AdContent *)content
-{
-    if (content == nil) {
-        return;
-    }else
-    {
-        self.adImageView.yy_imageURL = [NSURL URLWithString:content.adInfo.image.url];
-
-    }
+- (void)setContent:(AdContent *)content{
+    _content = content;
+    self.adImageView.yy_imageURL = [NSURL URLWithString:content.adInfo.image.url];
 }
-
 @end

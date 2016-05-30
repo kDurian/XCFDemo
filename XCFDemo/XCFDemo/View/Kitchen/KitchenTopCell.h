@@ -10,16 +10,10 @@
 #import "HomePageModel.h"
 
 @interface KitchenTopCell : UITableViewCell
-
-@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIImageView *leftImageView;
 @property (weak, nonatomic) IBOutlet UILabel *leftTitleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UILabel *rightNotificationLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *rightTitleLabel;
-
-
-
-- (void)cellBindHomePageNavContent:(HomePageContentModel *)content;
-
+@property (weak, nonatomic) IBOutlet UIImageView *rightImageView;
+@property(nonatomic, strong) HomePageContentModel *content;
 @end

@@ -12,7 +12,5 @@
 @interface KitchenBannerAd2Cell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
-
-- (void)cellBindHomePageBannerAd2Content:(AdContent *)content;
-
+@property(nonatomic, strong) AdContent *content;
 @end

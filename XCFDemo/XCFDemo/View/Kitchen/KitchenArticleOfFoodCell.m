@@ -11,22 +11,10 @@
 
 
 @implementation KitchenArticleOfFoodCell
-
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void)articleOfFoodCellBindRecipeItem:(RecipeItem *)item
-{
+- (void)setItem:(RecipeItem *)item{
+    _item = item;
     self.recipeImageView.yy_imageURL = [NSURL URLWithString:item.contents.image.url];
     self.titleLabel.text = item.contents.title;
     self.summaryLabel.text =  item.contents.desc;
 }
-
 @end

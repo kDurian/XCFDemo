@@ -70,7 +70,6 @@
 		02C586731CC78EDE00356A5B /* NetworkManager+RecipeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C586671CC78EDE00356A5B /* NetworkManager+RecipeRequest.m */; };
 		02C586771CC78EEC00356A5B /* SeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C586751CC78EEC00356A5B /* SeparatorCell.m */; };
 		02C586781CC78EEC00356A5B /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C586761CC78EEC00356A5B /* SeparatorCell.xib */; };
-		02C586851CC78EFB00356A5B /* HomePageCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C5867C1CC78EFB00356A5B /* HomePageCellManager.m */; };
 		02C586861CC78EFB00356A5B /* NSString+KDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C5867E1CC78EFB00356A5B /* NSString+KDExtension.m */; };
 		02C586871CC78EFB00356A5B /* UIColor+KDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C586801CC78EFB00356A5B /* UIColor+KDExtension.m */; };
 		02C586881CC78EFB00356A5B /* UIImage+KDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C586821CC78EFB00356A5B /* UIImage+KDExtension.m */; };
@@ -293,8 +292,6 @@
 		02C586751CC78EEC00356A5B /* SeparatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorCell.m; sourceTree = "<group>"; };
 		02C586761CC78EEC00356A5B /* SeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeparatorCell.xib; sourceTree = "<group>"; };
 		02C5867A1CC78EFB00356A5B /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		02C5867B1CC78EFB00356A5B /* HomePageCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageCellManager.h; path = Util/HomePageCellManager.h; sourceTree = "<group>"; };
-		02C5867C1CC78EFB00356A5B /* HomePageCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageCellManager.m; path = Util/HomePageCellManager.m; sourceTree = "<group>"; };
 		02C5867D1CC78EFB00356A5B /* NSString+KDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KDExtension.h"; sourceTree = "<group>"; };
 		02C5867E1CC78EFB00356A5B /* NSString+KDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KDExtension.m"; sourceTree = "<group>"; };
 		02C5867F1CC78EFB00356A5B /* UIColor+KDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KDExtension.h"; sourceTree = "<group>"; };
@@ -656,8 +653,6 @@
 				02C5872A1CC78FA600356A5B /* Moduls */,
 				02C586021CC78E7000356A5B /* AppDelegate.h */,
 				02C586031CC78E7000356A5B /* AppDelegate.m */,
-				02C5867B1CC78EFB00356A5B /* HomePageCellManager.h */,
-				02C5867C1CC78EFB00356A5B /* HomePageCellManager.m */,
 				02C5862F1CC78ECC00356A5B /* RecipeEditedPageCellManager.h */,
 				02C586301CC78ECC00356A5B /* RecipeEditedPageCellManager.m */,
 				02C5860D1CC78E7000356A5B /* LaunchScreen.storyboard */,
@@ -1346,7 +1341,6 @@
 				02C587021CC78F1100356A5B /* KitchenBannerAd1Cell.m in Sources */,
 				0280D0961CDB4A400072B0B6 /* CustomSearchController.m in Sources */,
 				02F038711CCE2F4D0085453B /* CustomTextField.m in Sources */,
-				02C586851CC78EFB00356A5B /* HomePageCellManager.m in Sources */,
 				02F0393B1CD89FA80085453B /* KeywordModel.m in Sources */,
 				02F039111CD368950085453B /* SearchResultKitchenFriendCell.m in Sources */,
 				02C587241CC78F1100356A5B /* XCFRecipeTextStepCell.m in Sources */,
