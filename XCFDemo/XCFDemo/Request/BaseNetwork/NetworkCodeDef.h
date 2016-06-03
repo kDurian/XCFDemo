@@ -56,6 +56,7 @@
 #define PATH_SEARCH_RECIPES_FILTERS @"search/recipes_filters.json"
 #define PATH_ACCOUNT_FEEDS @"account/feeds_v4.json"
 #define PATH_EXPLORE_JUSTBUY @"explore/buybuybuy.json"
+#define PATH_NOTIFICATION_COMMUNITY_BADGE @"notifications/community/badge_v2.json"
 
 //网络日志
 #if (DEBUG_HTTPURL == 1)

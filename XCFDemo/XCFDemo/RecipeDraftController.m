@@ -37,6 +37,7 @@ static NSString * const kRecipeEditedControllerStoryboardID = @"kRecipeEditedCon
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.hidesBottomBarWhenPushed = YES;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     

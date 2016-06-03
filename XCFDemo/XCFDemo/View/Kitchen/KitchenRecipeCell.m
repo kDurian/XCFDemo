@@ -23,54 +23,33 @@
 - (void)setItem:(RecipeItem *)item{
     _item = item;
     RecipeItemContents *contents = item.contents;
-    //缓存原始图片
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:contents.image.url]];
-    UIImage *image = [UIImage imageWithData:imageData];
-    
-    CGSize size = [KitchenRecipeCell downloadImageSizeWithURL:contents.image.url];
-    
-    CGRect finalRect = CGRectMake(0, (size.height - 380) / 2, size.width, 380);
-    
-    self.recipeImageView.image = [image getSubImage:finalRect];
-    
-    NSLog(@"image size: %@", NSStringFromCGSize(size));
-    
+    [self.recipeImageView yy_setImageWithURL:[NSURL URLWithString:contents.image.url] options:YYWebImageOptionUseNSURLCache];
     self.authorAvatarImageView.yy_imageURL = [NSURL URLWithString:contents.author.photoURL];
-    
     self.recipeTitleLabel.text             = contents.title;
-    
     self.recipeSummaryLabel.text           = contents.desc;
-    
     self.authorIDLabel.text                = contents.author.name;
-    
     [self setTextOfLabel:self.scoreAndCookedLabel withItemContents:contents];
 }
 
-- (void)setTextOfLabel:(UILabel *)label withItemContents:(RecipeItemContents *)contents
-{
+- (void)setTextOfLabel:(UILabel *)label withItemContents:(RecipeItemContents *)contents{
     NSString *cookedNumberString = [NSString stringWithFormat:@"%ld人做过", contents.n_cooked];
     NSString *combinedString = nil;
-    if (contents.score.length > 0)
-    {
-        if (contents.score.length < 2)
-        {
+    if (contents.score.length > 0){
+        if (contents.score.length < 2){
             combinedString = [NSString stringWithFormat:@"%@分 • %@", contents.score, cookedNumberString];
-        }else
-        {
+        }else{
             NSString *substringOfScore = [contents.score substringWithRange:NSMakeRange(0, 3)];
             combinedString = [NSString stringWithFormat:@"%@分 • %@", substringOfScore, cookedNumberString];
         }
         
         label.text = combinedString;
-    }else
-    {
+    }else{
         label.text = cookedNumberString;
     }
 }
 
 
-+(CGSize)downloadImageSizeWithURL:(id)imageURL
-{
++(CGSize)downloadImageSizeWithURL:(id)imageURL{
     NSURL* URL = nil;
     if([imageURL isKindOfClass:[NSURL class]]){
         URL = imageURL;

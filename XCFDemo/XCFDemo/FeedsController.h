@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomePageNotification.h"
 
 @interface FeedsController : UITableViewController
-
+@property(nonatomic, strong) NotificationContent *content;
 @end

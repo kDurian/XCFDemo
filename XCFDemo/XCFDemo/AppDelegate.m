@@ -23,6 +23,7 @@
     
     NSLog(@"%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject);
     
+    
     [[UITextField appearance] setTintColor:[UIColor textFieldCursorColor]];
     
     [[UITextField appearance] setTextColor:[UIColor textFieldTextColor]];

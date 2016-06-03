@@ -33,6 +33,13 @@
 		0280D0AD1CDBD9070072B0B6 /* ShowMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0280D0AC1CDBD9070072B0B6 /* ShowMoreCell.m */; };
 		0280D0B01CDBD93F0072B0B6 /* RelatedProductsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0280D0AF1CDBD93F0072B0B6 /* RelatedProductsCell.m */; };
 		0280D0B31CDBD97B0072B0B6 /* RelatedSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0280D0B21CDBD97B0072B0B6 /* RelatedSearchCell.m */; };
+		02811C541CFE22FD00855356 /* FeedsCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C531CFE22FD00855356 /* FeedsCommentController.m */; };
+		02811C571CFE26D600855356 /* FeedsCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C561CFE26D600855356 /* FeedsCommentCell.m */; };
+		02811C7D1D00E4AC00855356 /* XCFStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C7C1D00E4AC00855356 /* XCFStringUtil.m */; };
+		02811C801D00E52100855356 /* XCFLabelUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C7F1D00E52100855356 /* XCFLabelUtil.m */; };
+		02811C991D01028200855356 /* NetworkManager+Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C981D01028200855356 /* NetworkManager+Notification.m */; };
+		02811C9C1D01096400855356 /* NetworkManager+Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C9B1D01096400855356 /* NetworkManager+Feed.m */; };
+		02811C9F1D010A4B00855356 /* HomePageNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 02811C9E1D010A4B00855356 /* HomePageNotification.m */; };
 		0291DB3B1CDFD7ED00791578 /* RelatedSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0291DB3A1CDFD7ED00791578 /* RelatedSectionHeaderView.m */; };
 		0291DB3D1CDFD80300791578 /* RelatedSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0291DB3C1CDFD80300791578 /* RelatedSectionHeaderView.xib */; };
 		02BA5BD21CC9DE3A006862A0 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C5873D1CC79E8800356A5B /* libc++.1.dylib */; };
@@ -224,6 +231,20 @@
 		0280D0B11CDBD97B0072B0B6 /* RelatedSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedSearchCell.h; sourceTree = "<group>"; };
 		0280D0B21CDBD97B0072B0B6 /* RelatedSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedSearchCell.m; sourceTree = "<group>"; };
 		02811C141CF96CEF00855356 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		02811C521CFE22FD00855356 /* FeedsCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsCommentController.h; sourceTree = "<group>"; };
+		02811C531CFE22FD00855356 /* FeedsCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsCommentController.m; sourceTree = "<group>"; };
+		02811C551CFE26D600855356 /* FeedsCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsCommentCell.h; sourceTree = "<group>"; };
+		02811C561CFE26D600855356 /* FeedsCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsCommentCell.m; sourceTree = "<group>"; };
+		02811C7B1D00E4AC00855356 /* XCFStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFStringUtil.h; sourceTree = "<group>"; };
+		02811C7C1D00E4AC00855356 /* XCFStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFStringUtil.m; sourceTree = "<group>"; };
+		02811C7E1D00E52100855356 /* XCFLabelUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFLabelUtil.h; sourceTree = "<group>"; };
+		02811C7F1D00E52100855356 /* XCFLabelUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFLabelUtil.m; sourceTree = "<group>"; };
+		02811C971D01028200855356 /* NetworkManager+Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Notification.h"; sourceTree = "<group>"; };
+		02811C981D01028200855356 /* NetworkManager+Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkManager+Notification.m"; sourceTree = "<group>"; };
+		02811C9A1D01096400855356 /* NetworkManager+Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Feed.h"; sourceTree = "<group>"; };
+		02811C9B1D01096400855356 /* NetworkManager+Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkManager+Feed.m"; sourceTree = "<group>"; };
+		02811C9D1D010A4B00855356 /* HomePageNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageNotification.h; sourceTree = "<group>"; };
+		02811C9E1D010A4B00855356 /* HomePageNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageNotification.m; sourceTree = "<group>"; };
 		0291DB391CDFD7ED00791578 /* RelatedSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedSectionHeaderView.h; sourceTree = "<group>"; };
 		0291DB3A1CDFD7ED00791578 /* RelatedSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedSectionHeaderView.m; sourceTree = "<group>"; };
 		0291DB3C1CDFD80300791578 /* RelatedSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelatedSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -500,6 +521,8 @@
 				02049B991CF3826800740D36 /* FeedsCell.m */,
 				02049B9B1CF3D79600740D36 /* FeedsDishCollectionCell.h */,
 				02049B9C1CF3D79600740D36 /* FeedsDishCollectionCell.m */,
+				02811C551CFE26D600855356 /* FeedsCommentCell.h */,
+				02811C561CFE26D600855356 /* FeedsCommentCell.m */,
 			);
 			name = Feeds;
 			sourceTree = "<group>";
@@ -715,6 +738,10 @@
 			isa = PBXGroup;
 			children = (
 				02C5867A1CC78EFB00356A5B /* Config.h */,
+				02811C7B1D00E4AC00855356 /* XCFStringUtil.h */,
+				02811C7C1D00E4AC00855356 /* XCFStringUtil.m */,
+				02811C7E1D00E52100855356 /* XCFLabelUtil.h */,
+				02811C7F1D00E52100855356 /* XCFLabelUtil.m */,
 				02C5867D1CC78EFB00356A5B /* NSString+KDExtension.h */,
 				02C5867E1CC78EFB00356A5B /* NSString+KDExtension.m */,
 				02C5867F1CC78EFB00356A5B /* UIColor+KDExtension.h */,
@@ -962,6 +989,8 @@
 			children = (
 				02EEA13B1CF0C36A008D1DCC /* FeedsController.h */,
 				02EEA13C1CF0C36A008D1DCC /* FeedsController.m */,
+				02811C521CFE22FD00855356 /* FeedsCommentController.h */,
+				02811C531CFE22FD00855356 /* FeedsCommentController.m */,
 				02C2C4F11CF11C82009721DA /* Durian.png */,
 				02049B951CF3812800740D36 /* beach.jpg */,
 				02C2C4F51CF11CDC009721DA /* Dandelion.jpg */,
@@ -1051,6 +1080,10 @@
 				02C586651CC78EDE00356A5B /* NetworkManager+HomePageRequest.m */,
 				02C586661CC78EDE00356A5B /* NetworkManager+RecipeRequest.h */,
 				02C586671CC78EDE00356A5B /* NetworkManager+RecipeRequest.m */,
+				02811C9A1D01096400855356 /* NetworkManager+Feed.h */,
+				02811C9B1D01096400855356 /* NetworkManager+Feed.m */,
+				02811C971D01028200855356 /* NetworkManager+Notification.h */,
+				02811C981D01028200855356 /* NetworkManager+Notification.m */,
 			);
 			name = HomePageRequest;
 			sourceTree = "<group>";
@@ -1083,6 +1116,8 @@
 				02C5865D1CC78EDE00356A5B /* HomePageModel.m */,
 				02C5865E1CC78EDE00356A5B /* HomePageRecipeModel.h */,
 				02C5865F1CC78EDE00356A5B /* HomePageRecipeModel.m */,
+				02811C9D1D010A4B00855356 /* HomePageNotification.h */,
+				02811C9E1D010A4B00855356 /* HomePageNotification.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -1312,11 +1347,13 @@
 				02C586711CC78EDE00356A5B /* NetworkManager+HomePageAd2Request.m in Sources */,
 				022805C51CECB47B0066B97A /* SearchInResultsBaseCell.m in Sources */,
 				02C5866B1CC78EDE00356A5B /* NSDictionary+CustomConvert.m in Sources */,
+				02811C7D1D00E4AC00855356 /* XCFStringUtil.m in Sources */,
 				02F0390B1CD3682C0085453B /* SearchResultRecipesHeaderCell.m in Sources */,
 				02C5864C1CC78ECC00356A5B /* RecipeInitialEntryController.m in Sources */,
 				0280D0B01CDBD93F0072B0B6 /* RelatedProductsCell.m in Sources */,
 				022805B31CEBCE130066B97A /* GoodsUserMenuGenericCell.m in Sources */,
 				02C586881CC78EFB00356A5B /* UIImage+KDExtension.m in Sources */,
+				02811C571CFE26D600855356 /* FeedsCommentCell.m in Sources */,
 				02C5871C1CC78F1100356A5B /* XCFRecipeIngsTitleCell.m in Sources */,
 				02F038E51CD105220085453B /* PopSearchRecipesHeaderView.m in Sources */,
 				02F039021CD365A80085453B /* SearchKitchenFriendsOrMenuCell.m in Sources */,
@@ -1336,6 +1373,7 @@
 				02F039051CD365D90085453B /* RecentSearchCell.m in Sources */,
 				02C587221CC78F1100356A5B /* XCFRecipeStepTitleCell.m in Sources */,
 				02F039171CD3690F0085453B /* SearchResultCollectionCell.m in Sources */,
+				02811C9F1D010A4B00855356 /* HomePageNotification.m in Sources */,
 				022805B91CEBD5EB0066B97A /* RecipesFiltersModel.m in Sources */,
 				02049B9A1CF3826800740D36 /* FeedsCell.m in Sources */,
 				02C587021CC78F1100356A5B /* KitchenBannerAd1Cell.m in Sources */,
@@ -1350,12 +1388,15 @@
 				02C587231CC78F1100356A5B /* XCFRecipeTextStepAddCell.m in Sources */,
 				02C587271CC78F1100356A5B /* XCFRecipeTipsCell.m in Sources */,
 				02F038F21CD242460085453B /* RecipeSearchResultsController.m in Sources */,
+				02811C9C1D01096400855356 /* NetworkManager+Feed.m in Sources */,
+				02811C801D00E52100855356 /* XCFLabelUtil.m in Sources */,
 				02049BD61CF405AA00740D36 /* NSDate+KDExtension.m in Sources */,
 				02C2C4EC1CF0E034009721DA /* Feeds.m in Sources */,
 				02C587161CC78F1100356A5B /* XCFRecipeDescCell.m in Sources */,
 				02F038FB1CD3607D0085453B /* PopSearchRecipesCell.m in Sources */,
 				02C587121CC78F1100356A5B /* RecipeSectionHeaderCell.m in Sources */,
 				02EEA1081CEE2353008D1DCC /* CustomHeaderFooterView.m in Sources */,
+				02811C991D01028200855356 /* NetworkManager+Notification.m in Sources */,
 				02C587151CC78F1100356A5B /* XCFRecipeDescAddCell.m in Sources */,
 				02C5870D1CC78F1100356A5B /* PopEventCollectionViewCell.m in Sources */,
 				0280D0A41CDBD78B0072B0B6 /* ExplorationCell.m in Sources */,
@@ -1423,6 +1464,7 @@
 				02C5870C1CC78F1100356A5B /* KitchenTopCell.m in Sources */,
 				02C586451CC78ECC00356A5B /* RecipeIngredientAddCell.m in Sources */,
 				0280D0991CDB7F0A0072B0B6 /* RecipeDetailController.m in Sources */,
+				02811C541CFE22FD00855356 /* FeedsCommentController.m in Sources */,
 				0280D0AA1CDBD8CA0072B0B6 /* RelatedMenuCell.m in Sources */,
 				02C586011CC78E7000356A5B /* main.m in Sources */,
 				02C5873A1CC7913400356A5B /* HomePageController.m in Sources */,

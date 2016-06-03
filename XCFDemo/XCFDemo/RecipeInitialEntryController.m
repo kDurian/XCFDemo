@@ -33,6 +33,8 @@ static NSString * const kRecipeEditedControllerStoryboardID = @"kRecipeEditedCon
 //    [[RLMRealm defaultRealm] transactionWithBlock:^{
 //        [[RLMRealm defaultRealm] deleteAllObjects];
 //    }];
+    
+    self.hidesBottomBarWhenPushed = YES;
 
     [self setupNavBar];
     

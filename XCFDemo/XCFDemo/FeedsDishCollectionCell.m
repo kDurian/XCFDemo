@@ -10,4 +10,9 @@
 
 @implementation FeedsDishCollectionCell
 
+- (void)prepareForReuse{
+    self.coverImageView.image = nil;
+    [super prepareForReuse];
+}
+
 @end

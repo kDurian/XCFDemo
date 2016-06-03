@@ -11,6 +11,7 @@
 #import "RecipeInitialEntryController.h"
 #import "RecipeEditedController.h"
 #import "RecipeSearchController.h"
+#import "FeedsController.h"
 
 #import "KitchenTopCell.h"
 #import "KitchenNavCell.h"
@@ -36,11 +37,16 @@
 #import "NetworkManager+HomePageAd2Request.h"
 #import "NetworkManager+YearKeyword.h"
 #import "NetworkManager+HourKeyword.h"
+#import "NetworkManager+Notification.h"
+#import "NetworkManager+Feed.h"
+
 
 #import "HomePageModel.h"
 #import "HomePageAdModel.h"
 #import "HomePageRecipeModel.h"
 #import "KeywordModel.h"
+#import "Feeds.h"
+#import "HomePageNotification.h"
 
 #define kHeaderInSectionBackgroundColor [UIColor colorWithRed:245/255.0f green:245/255.0f blue:236/255.0f alpha:1];
 
@@ -75,6 +81,7 @@ static NSString * const kHomeIssueItemTPL6TableViewCellID = @"kHomeIssueItemTPL6
 
 static NSString * const kRecipeInitialControllerStoryboardID = @"kRecipeInitialControllerID";
 static NSString * const kRecipeCreatedStoryboardName = @"RecipeCreated";
+static NSString * const kFeedsStoryboardName = @"Feeds";
 
 typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
 {
@@ -95,6 +102,8 @@ typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
     KeywordContent *hourKeyword;
 }
 @property(nonatomic, strong) NSMutableArray *recipeContents;
+@property(nonatomic, strong) NSArray *feeds;
+@property(nonatomic, strong) NotificationContent *notificationContent;
 @end
 
 @implementation HomePageController
@@ -111,6 +120,12 @@ typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
     [self setTableView];
     [self registerNibForCell];
     [self fetchDataFromNetwork];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification{
+    NSLog(@"***** HomePageController *****: %@", notification.userInfo);
 }
 
 #pragma mark - private methods
@@ -202,6 +217,24 @@ typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
     } withFailBlock:^(BaseEntity *entity) {
         dispatch_group_leave(group);
     }];
+    
+    dispatch_group_enter(group);
+    [NetworkManager getNotificationWithSuccBlock:^(BaseEntity *entity) {
+        NotificationResponse *response = (NotificationResponse *)entity;
+        self.notificationContent = response.content;
+        dispatch_group_leave(group);
+    } OrFailedBlock:^(BaseEntity *entity) {
+        dispatch_group_leave(group);
+    }];
+    
+    dispatch_group_enter(group);
+    [NetworkManager getFeedWithSuccBlock:^(BaseEntity *entity) {
+        FeedsResponse *response = (FeedsResponse *)entity;
+        self.feeds = response.content.feeds;
+        dispatch_group_leave(group);
+    } OrFailedBlock:^(BaseEntity *entity) {
+        dispatch_group_leave(group);
+    }];
 
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -273,6 +306,13 @@ typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
         switch (indexPath.row){
             case 0:{
                 KitchenTopCell *cell = [tableView dequeueReusableCellWithIdentifier:kKitchenTopCellID forIndexPath:indexPath];
+                [self addTapGestureForTopCell:cell];
+                Feed *feed = nil;
+                if (self.feeds.count > 0) {
+                    feed = self.feeds[0];
+                    cell.feed = feed;
+                }
+                cell.number = self.notificationContent.number;
                 cell.content = navContent;
                 return cell;
             }break;
@@ -342,7 +382,6 @@ typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
             }
         }
     }
-    
     return nil;
 }
 
@@ -404,5 +443,26 @@ typedef NS_ENUM(NSInteger, HomePageIssueItemCellStyle)
         }
     }
     return 0.0f;
+}
+
+#pragma mark - 
+- (void)addTapGestureForTopCell:(KitchenTopCell *)cell{
+    UITapGestureRecognizer *leftTapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPopRecipeOfTheWeek)];
+    [cell.leftImageView addGestureRecognizer:leftTapGes];
+    
+    UITapGestureRecognizer *rightTapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showFeedsAndNotification)];
+    [cell.rightImageView addGestureRecognizer:rightTapGes];
+}
+
+#pragma mark - 
+- (void)showPopRecipeOfTheWeek{
+    
+}
+
+- (void)showFeedsAndNotification{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kFeedsStoryboardName bundle:nil];
+    FeedsController *controller = storyboard.instantiateInitialViewController;
+    controller.content = self.notificationContent;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

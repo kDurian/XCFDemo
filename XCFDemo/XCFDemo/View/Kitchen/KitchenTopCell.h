@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomePageModel.h"
+#import "Feeds.h"
 
 @interface KitchenTopCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *leftImageView;
@@ -16,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *rightTitleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *rightImageView;
 @property(nonatomic, strong) HomePageContentModel *content;
+@property(nonatomic, strong) Feed *feed;
+@property(nonatomic, assign) NSInteger number;
 @end

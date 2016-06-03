@@ -51,7 +51,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-VK-Irx" userLabel="LeftView">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="109"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-Cn-YFq">
+                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-Cn-YFq">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="109"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本周流行菜谱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jj-Mf-E0M">
@@ -74,7 +74,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5F-8K-B0O" userLabel="RightView">
                                             <rect key="frame" x="300" y="0.0" width="300" height="109"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-cn-IQO">
+                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-cn-IQO">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="109"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z37-rl-9xg">
@@ -83,23 +83,34 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AR-0N-xoQ">
-                                                    <rect key="frame" x="129" y="44" width="42" height="21"/>
-                                                    <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvj-8F-U28">
+                                                    <rect key="frame" x="111" y="35" width="80" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1个消息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnG-AH-oQX">
+                                                            <rect key="frame" x="15" y="12" width="52" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.4415479014" green="0.60070785770000001" blue="1" alpha="0.55701793320000004" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="8u4-Qv-8O5"/>
+                                                        <constraint firstItem="HnG-AH-oQX" firstAttribute="centerX" secondItem="uvj-8F-U28" secondAttribute="centerX" id="BcJ-Zn-Eps"/>
+                                                        <constraint firstAttribute="height" constant="40" id="VYq-Rm-zbM"/>
+                                                        <constraint firstItem="HnG-AH-oQX" firstAttribute="centerY" secondItem="uvj-8F-U28" secondAttribute="centerY" id="Zsq-og-6m1"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="z37-rl-9xg" firstAttribute="centerX" secondItem="A5F-8K-B0O" secondAttribute="centerX" id="4l8-jQ-v5e"/>
+                                                <constraint firstItem="uvj-8F-U28" firstAttribute="centerY" secondItem="A5F-8K-B0O" secondAttribute="centerY" id="BdN-Jr-HHO"/>
                                                 <constraint firstItem="0Jd-cn-IQO" firstAttribute="leading" secondItem="A5F-8K-B0O" secondAttribute="leading" id="EaB-5q-dEg"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Jd-cn-IQO" secondAttribute="trailing" id="HJC-4N-Tda"/>
-                                                <constraint firstItem="1AR-0N-xoQ" firstAttribute="centerY" secondItem="A5F-8K-B0O" secondAttribute="centerY" id="KaK-JY-IoF"/>
                                                 <constraint firstAttribute="bottom" secondItem="0Jd-cn-IQO" secondAttribute="bottom" id="MdN-yH-taK"/>
                                                 <constraint firstItem="0Jd-cn-IQO" firstAttribute="top" secondItem="A5F-8K-B0O" secondAttribute="top" id="Tvg-7a-Uml"/>
-                                                <constraint firstItem="1AR-0N-xoQ" firstAttribute="centerX" secondItem="A5F-8K-B0O" secondAttribute="centerX" id="npc-qs-aH3"/>
+                                                <constraint firstItem="uvj-8F-U28" firstAttribute="centerX" secondItem="A5F-8K-B0O" secondAttribute="centerX" id="TwL-38-6QW"/>
                                                 <constraint firstAttribute="bottom" secondItem="z37-rl-9xg" secondAttribute="bottom" constant="12" id="uUc-uv-tRt"/>
                                             </constraints>
                                         </view>
@@ -119,7 +130,7 @@
                                     <outlet property="leftImageView" destination="XLn-Cn-YFq" id="TlQ-X5-QuN"/>
                                     <outlet property="leftTitleLabel" destination="6jj-Mf-E0M" id="GhU-BC-2gf"/>
                                     <outlet property="rightImageView" destination="0Jd-cn-IQO" id="Os9-g6-M7C"/>
-                                    <outlet property="rightNotificationLabel" destination="1AR-0N-xoQ" id="fUp-Lq-zT8"/>
+                                    <outlet property="rightNotificationLabel" destination="HnG-AH-oQX" id="t5X-Ku-XC2"/>
                                     <outlet property="rightTitleLabel" destination="z37-rl-9xg" id="5er-Fv-9V6"/>
                                 </connections>
                             </tableViewCell>

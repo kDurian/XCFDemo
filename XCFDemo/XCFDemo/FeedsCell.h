@@ -10,8 +10,15 @@
 #import "TTTAttributedLabel.h"
 
 #import "Feeds.h"
+#import "HomePageNotification.h"
 
 @interface FeedsCell : UITableViewCell
+@end
+
+@interface FeedsNotificationCell : FeedsCell
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *notificationLabel;
+@property(nonatomic, strong) NotificationContent *content;
 @end
 
 @interface FeedsRecipePhotoCell : FeedsCell
@@ -57,7 +64,7 @@
 
 @interface FeedsDishCommentCell : FeedsCell<TTTAttributedLabelDelegate>
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *commentLabel;
-@property(nonatomic, strong) LastestComment *commment;
+@property(nonatomic, strong) LatestComment *commment;
 @end
 
 @interface FeedsDishMoreCell : FeedsCell

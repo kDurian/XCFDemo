@@ -9,23 +9,13 @@
 #import "FeedsCell.h"
 #import "UIImageView+WebCache.h"
 #import "FeedsDishCollectionCell.h"
-
-#import "UIColor+KDExtension.h"
-
 #import "NSDate+KDExtension.h"
-
 #import "UIView+SDExtension.h"
+#import "XCFLabelUtil.h"
+#import "XCFStringUtil.h"
 
 static NSString *const kFeedsDishCollectionCellID = @"kFeedsDishCollectionCell";
 
-static NSDictionary* GetAttributeLabelLinkAttributes(){
-    
-    UIColor *textColor = [UIColor feedsAttributeLabelTextColor];
-    return  @{
-                (id)kCTForegroundColorAttributeName : textColor,
-                (id)kCTUnderlineStyleAttributeName : [NSNumber numberWithBool:NO]
-            };
-}
 
 @implementation FeedsCell
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -39,7 +29,17 @@ static NSDictionary* GetAttributeLabelLinkAttributes(){
 @end
 
 
+@implementation FeedsNotificationCell
+- (void)awakeFromNib{
+    self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.bounds) / 2;
+}
 
+- (void)setContent:(NotificationContent *)content{
+    _content = content;
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:content.avatar]];
+    self.notificationLabel.text = [NSString stringWithFormat:@"%ld条未读消息", content.number];
+}
+@end
 
 @implementation FeedsRecipePhotoCell
 - (void)prepareForReuse
@@ -59,39 +59,44 @@ static NSDictionary* GetAttributeLabelLinkAttributes(){
 @end
 
 
-
-
 @implementation FeedsDishPhotosCell
 - (void)prepareForReuse{
     self.pageIndicatorView.hidden = YES;
     self.isHiddenPageIndicator = YES;
+    self.pageIndicatorLabel.text = nil;
     [super prepareForReuse];
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        _collectionView.pagingEnabled = YES;
-        _pageIndicatorView.layer.cornerRadius = 14.0;
-    }
-    return self;
+- (void)awakeFromNib{
+//    NSLog(@"%@", self.collectionView);
+//    NSLog(@"%@", self.pageIndicatorLabel);
+    _collectionView.pagingEnabled = YES;
+    _pageIndicatorView.layer.cornerRadius = CGRectGetWidth(_pageIndicatorView.bounds) / 2;
 }
 
 - (void)setDish:(FeedDish *)dish{
     _dish = dish;
+    self.curPageNum = 1;
+    self.totalPageNum = 1 + dish.extra_pics.count;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    flowLayout.itemSize = CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetWidth(self.bounds));
+    [self.collectionView reloadData];
     if (dish.extra_pics.count == 0) {
         self.pageIndicatorView.hidden = YES;
         self.isHiddenPageIndicator = YES;
     }else {
         self.pageIndicatorView.hidden = NO;
         self.isHiddenPageIndicator = NO;
-        self.pageIndicatorLabel.text = [NSString stringWithFormat:@"%ld/%ld", self.curPageNum, self.totalPageNum];
+        [self setPageIndicatorLabelText];
     }
 }
 
-#pragma mark - UICollectionViewDelegate && DataSource
+- (void)setPageIndicatorLabelText{
+    self.pageIndicatorLabel.text = [NSString stringWithFormat:@"%ld/%ld", self.curPageNum, self.totalPageNum];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dish.extra_pics.count + 1;
 }
@@ -109,14 +114,13 @@ static NSDictionary* GetAttributeLabelLinkAttributes(){
     return cell;
 }
 
-#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSInteger indexOfPage = scrollView.contentOffset.x / self.collectionView.sd_width;
-    self.curPageNum = indexOfPage + 1;
+    CGFloat width = self.collectionView.sd_width;
+    CGFloat contentOffset_x = scrollView.contentOffset.x;
+    self.curPageNum = (contentOffset_x + width * 0.5) / width + 1;
+    [self setPageIndicatorLabelText];
 }
 @end
-
-
 
 
 @implementation FeedsInfoCell{
@@ -131,8 +135,11 @@ static NSDictionary* GetAttributeLabelLinkAttributes(){
     [super prepareForReuse];
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
+- (void)awakeFromNib{
+    self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.bounds) / 2;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
         _dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -160,51 +167,57 @@ static NSDictionary* GetAttributeLabelLinkAttributes(){
 @end
 
 
-
 static NSString *descKeywords = @"keywords";
 @implementation FeedsDescCell{
+    NSMutableArray *_rangeArray;
     NSString *_rawText;
 }
+
 - (void)prepareForReuse{
     self.descLabel.text = nil;
     [super prepareForReuse];
 }
+
 - (void)setDish:(FeedDish *)dish{
     _dish = dish;
-    self.descLabel.text = dish.desc;
+    _rawText = [self generateRowTextWithDish:dish];
+    _rangeArray = [NSMutableArray new];
+    self.descLabel.text = _rawText;
+    self.descLabel.linkAttributes = [XCFLabelUtil tttAttributeLabelLinkAttributes];
+    _rangeArray = [XCFStringUtil calculateRangeForKeywordsInDescTxt:_rawText];
+    [XCFLabelUtil label:self.descLabel addLinkWithRangeArray:_rangeArray andTransitInfoKey:descKeywords];
 }
 
 - (void)setRecipe:(FeedRecipe *)recipe{
     _recipe = recipe;
     _rawText = recipe.desc;
-    NSMutableArray *rangeArray = [self rangeArrayOfStringBetweenPoundKey:_rawText];
+    _rangeArray = [NSMutableArray new];
+    self.descLabel.delegate = self;
     self.descLabel.text = _rawText;
-    [self addLinkToTextWithRangeArray:rangeArray];
+    self.descLabel.linkAttributes = [XCFLabelUtil tttAttributeLabelLinkAttributes];
+    _rangeArray = [XCFStringUtil calculateRangeForKeywordsInDescTxt:_rawText];
+    [XCFLabelUtil label:self.descLabel addLinkWithRangeArray:_rangeArray andTransitInfoKey:descKeywords];
 }
 
-- (NSMutableArray *)rangeArrayOfStringBetweenPoundKey:(NSString *)string{
-    __block NSMutableArray *rangeArray = [NSMutableArray array];
-    NSString *pattern = @"#[^#]#";
-    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
-    [regExp enumerateMatchesInString:string options:0 range:NSMakeRange(0, string.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-        NSRange range = [result range];
-        [rangeArray addObject:[NSValue valueWithRange:range]];
-    }];
-    return rangeArray;
+- (NSString *)generateRowTextWithDish:(FeedDish *)dish{
+    NSString *desc = dish.desc;
+    NSString *name = dish.name;
+    NSString *rawText = @"";
+    if (dish.is_orphan) {
+        if ([desc containsString:name]) {
+            NSString *tmp = [NSString stringWithFormat:@"#%@#", name];
+            NSRange range = [desc rangeOfString:tmp];
+            rawText = [desc stringByReplacingCharactersInRange:range withString:@""];
+        }else {
+            rawText = desc;
+        }
+    }else {
+        rawText = desc;
+    }
+    return rawText;
 }
 
-- (void)addLinkToTextWithRangeArray:(NSMutableArray *)rangeArray{
-    [rangeArray enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSRange range = obj.rangeValue;
-        NSDictionary *transitInformation = @{descKeywords : [_rawText substringWithRange:range]};
-        self.descLabel.linkAttributes = GetAttributeLabelLinkAttributes();
-        [self.descLabel addLinkToTransitInformation:transitInformation withRange:range];
-    }];
-}
-
-#pragma mark - TTTAuttributeLabelDeledate
-- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components
-{
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components{
     __block NSString *selectStr = @"";
     NSString *tmp = components[descKeywords];
     NSString *pattern = @"[^#+]";
@@ -218,7 +231,6 @@ static NSString *descKeywords = @"keywords";
     
 }
 @end
-
 
 
 static NSString *authorNameKewwords = @"authorName";
@@ -236,8 +248,8 @@ static NSString *authorNameKewwords = @"authorName";
     _rangeArray = [NSMutableArray new];
     [self spliceTextAndCalculateRangeWithDiggUsers:diggUsers];
     self.diggLabel.text = _rawText;
-    self.diggLabel.linkAttributes = GetAttributeLabelLinkAttributes();
-    [self addLinkForTextAtSpecifiedRange];
+    self.diggLabel.linkAttributes = [XCFLabelUtil tttAttributeLabelLinkAttributes];
+    [XCFLabelUtil label:self.diggLabel addLinkWithRangeArray:_rangeArray andTransitInfoKey:authorNameKewwords];
 }
 
 - (void)spliceTextAndCalculateRangeWithDiggUsers:(DiggUsers *)diggUsers{
@@ -255,13 +267,13 @@ static NSString *authorNameKewwords = @"authorName";
                 if (count > i) {
                     FeedAuthorOrUser *diggUser = diggUsers.users[i];
                     if (i == count - 1) {
-                        [text stringByAppendingString:[NSString stringWithFormat:@"%@ 赞", diggUser.name]];
                         NSRange range = NSMakeRange(text.length, diggUser.name.length);
                         [_rangeArray addObject:[NSValue valueWithRange:range]];
+                        text = [text stringByAppendingString:[NSString stringWithFormat:@"%@ 赞", diggUser.name]];
                     }else {
-                        [text stringByAppendingString:[NSString stringWithFormat:@"%@，", diggUser.name]];
                         NSRange nameRange = NSMakeRange(text.length, diggUser.name.length);
                         [_rangeArray addObject:[NSValue valueWithRange:nameRange]];
+                        text = [text stringByAppendingString:[NSString stringWithFormat:@"%@，", diggUser.name]];
                     }
                 }
             }
@@ -275,15 +287,6 @@ static NSString *authorNameKewwords = @"authorName";
     }
 }
 
-- (void)addLinkForTextAtSpecifiedRange{
-    [_rangeArray enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSRange range = obj.rangeValue;
-        NSDictionary *transitInfo = @{ authorNameKewwords : [_rawText substringWithRange:range]};
-        [self.diggLabel addLinkToTransitInformation:transitInfo withRange:range];
-    }];
-}
-
-#pragma mark - TTTAttributeLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components{
     NSString *selectStr = components[authorNameKewwords];
     NSLog(@"%@", selectStr);
@@ -291,7 +294,6 @@ static NSString *authorNameKewwords = @"authorName";
     //跳转逻辑
 }
 @end
-
 
 
 @implementation FeedsDishCommentNumCell
@@ -307,7 +309,6 @@ static NSString *authorNameKewwords = @"authorName";
 @end
 
 
-
 @implementation FeedsDishCommentCell{
     NSString *_rawText;
     NSMutableArray *_rangeArray;
@@ -317,35 +318,18 @@ static NSString *authorNameKewwords = @"authorName";
     [super prepareForReuse];
 }
 
-- (void)setCommment:(LastestComment *)comment{
+- (void)setCommment:(LatestComment *)comment{
     _rangeArray = [NSMutableArray new];
     _rawText = [NSString stringWithFormat:@"%@：%@", comment.author.name, comment.txt];
     NSRange firstRange = NSMakeRange(0, comment.author.name.length);
     [_rangeArray addObject:[NSValue valueWithRange:firstRange]];
+    self.commentLabel.delegate = self;
     self.commentLabel.text = _rawText;
-    self.commentLabel.linkAttributes = GetAttributeLabelLinkAttributes();
-    [self calculateRangeForAtUsersInCommentTxt:comment.txt];
-    [self addLinkForTextAtSpecifiedRange];
+    self.commentLabel.linkAttributes = [XCFLabelUtil tttAttributeLabelLinkAttributes];
+    [_rangeArray addObjectsFromArray:[XCFStringUtil calculateRangeForAtUsersInCommentTxt:_rawText]];
+    [XCFLabelUtil label:self.commentLabel addLinkWithRangeArray:_rangeArray andTransitInfoKey:authorNameKewwords];
 }
 
-- (void)calculateRangeForAtUsersInCommentTxt:(NSString *)txt{
-    NSString *pattern = @"(@.+\\s)|(@.+$)";
-    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
-    [regExp enumerateMatchesInString:txt options:0 range:NSMakeRange(0, txt.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-        NSRange range = [result range];
-        [_rangeArray addObject:[NSValue valueWithRange:range]];
-    }];
-}
-
-- (void)addLinkForTextAtSpecifiedRange{
-    [_rangeArray enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSRange range = obj.rangeValue;
-        NSDictionary *transitInfo = @{ authorNameKewwords : [_rawText substringWithRange:range] };
-        [self.commentLabel addLinkToTransitInformation:transitInfo withRange:range];
-    }];
-}
-
-#pragma mark - TTTAttributeLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components{
     NSString *text = components[authorNameKewwords];
     NSLog(@"%@", text);
@@ -355,16 +339,10 @@ static NSString *authorNameKewwords = @"authorName";
 @end
 
 
-
 @implementation FeedsDishMoreCell
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self.diggButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
-        [self.diggButton setImage:[UIImage imageNamed:@"liked"] forState:UIControlStateSelected];
-    }
-    return self;
+- (void)awakeFromNib{
+    [self.diggButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+    [self.diggButton setImage:[UIImage imageNamed:@"liked"] forState:UIControlStateSelected];
 }
 
 - (void)prepareForReuse{
@@ -382,6 +360,6 @@ static NSString *authorNameKewwords = @"authorName";
 }
 @end
 
-@implementation FeedsRecipeMoreCell
 
+@implementation FeedsRecipeMoreCell
 @end

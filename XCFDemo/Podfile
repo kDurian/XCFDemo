@@ -16,4 +16,5 @@ target 'XCFDemo' do
     pod 'DZNEmptyDataSet'
     pod 'Masonry'
     pod 'TTTAttributedLabel', '~> 1.13.4'
+    pod 'SZTextView', '~> 1.2.2'
 end

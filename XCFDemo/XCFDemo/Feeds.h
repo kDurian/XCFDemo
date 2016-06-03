@@ -11,7 +11,7 @@
 
 @class FeedAuthorOrUser;
 
-@interface LastestComment : NSObject
+@interface LatestComment : NSObject
 @property(nonatomic, strong) FeedAuthorOrUser *author;
 @property(nonatomic, strong) NSArray *at_users;
 @property(nonatomic, copy) NSString *target_id;
@@ -57,7 +57,7 @@
 @property(nonatomic, strong) NSArray *users; // FeedAuthorOrUser
 @end
 
-@interface DishPic : NSObject
+@interface DishPic : NSObject<YYModel>
 @property(nonatomic, copy) NSString *pic_280;
 @property(nonatomic, copy) NSString *pic_600;
 @property(nonatomic, copy) NSString *ident;
@@ -124,7 +124,7 @@
 @property(nonatomic, strong) DiggUsers *digg_users;
 @property(nonatomic, assign) NSInteger ndiggs;
 @property(nonatomic, copy) NSString *recipe_id;
-@property(nonatomic, strong) NSArray *latest_comments; // LastestComment
+@property(nonatomic, strong) NSArray *latest_comments; // LatestComment
 @property(nonatomic, copy) NSString *desc;
 @property(nonatomic, assign) BOOL is_orphan;
 @property(nonatomic, copy) NSString *ident;
